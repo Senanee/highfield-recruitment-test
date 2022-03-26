@@ -1,0 +1,43 @@
+<h2>Users</h2>
+
+ <!-- <button mat-flat-button color="primary" routerLink="/users/create">Create new</button>-->
+
+<app-generic-list [list]="users">
+    <ng-container content>
+        <table mat-table [dataSource]="users" class="mat-elevation-z8 table-index">
+            <ng-container matColumnDef="firstName">
+                <th mat-header-cell *matHeaderCellDef>First Name</th>
+                <td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let element">{{(element.email)}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dob">
+                <th mat-header-cell *matHeaderCellDef>Date of birth</th>
+                <td mat-cell *matCellDef="let element">{{(element.dob)| date }}</td>
+            </ng-container>
+            <ng-container matColumnDef="favouriteColour">
+                <th mat-header-cell *matHeaderCellDef>Favourite Colour</th>
+                <td mat-cell *matCellDef="let element">{{element.favouriteColour}}</td>
+            </ng-container>
+            <ng-container matColumnDef="originalAge">
+                <th mat-header-cell *matHeaderCellDef>Current Age</th>
+                <td mat-cell *matCellDef="let element">{{element.originalAge}}</td>
+            </ng-container>
+            <ng-container matColumnDef="agePlusTwenty">
+                <th mat-header-cell *matHeaderCellDef>Age + 20 </th>
+                <td mat-cell *matCellDef="let element">{{element.agePlusTwenty}}</td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons
+        [length]="totalAmountOfRecords" [pageSize]="pageSize" (page)="updatePagination($event)"
+        class="mat-elevation-z8"> 
+
+        </mat-paginator>
+    </ng-container>
+</app-generic-list>

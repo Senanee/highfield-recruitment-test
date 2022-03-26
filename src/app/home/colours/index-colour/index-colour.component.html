@@ -1,0 +1,27 @@
+<h2>Colours</h2>
+
+ <!-- <button mat-flat-button color="primary" routerLink="/users/create">Create new</button>-->
+
+<app-generic-list [list]="colours">
+    <ng-container content>
+        <table mat-table [dataSource]="colours" class="mat-elevation-z8 table-index">
+            <ng-container matColumnDef="colour">
+                <th mat-header-cell *matHeaderCellDef>Colour</th>
+                <td mat-cell *matCellDef="let element">{{element.colour}}</td>
+            </ng-container>
+            <ng-container matColumnDef="count">
+                <th mat-header-cell *matHeaderCellDef>Count</th>
+                <td mat-cell *matCellDef="let element">{{element.count}}</td>
+            </ng-container>
+           
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons
+        [length]="totalAmountOfRecords" [pageSize]="pageSize" (page)="updatePagination($event)"
+        class="mat-elevation-z8"> 
+
+        </mat-paginator>
+    </ng-container>
+</app-generic-list>

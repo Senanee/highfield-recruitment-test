@@ -27,7 +27,7 @@ export class UsersService {
     let params = new HttpParams();
     params = params.append('page', page.toString());
     params = params.append('recordsPerPage', recordsPerPage.toString());
-    return this.http.get<TopColoursDTO[]>(this.apiURL, {observe: 'response', params});
+    return this.http.get<TopColoursDTO[]>(`${this.apiURL}/getColours`, {observe: 'response', params});
   }
   
   getResponse(): Observable<ResponseDTO[]>{

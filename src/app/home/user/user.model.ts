@@ -7,7 +7,7 @@ export interface userDTO {
     email: string;
     dob: Date;
     favouriteColour: string;
-    agePlusTwentyDTO: AgePlusTwentyDTO
+    //agePlusTwentyDTO: AgePlusTwentyDTO
     originalAge: number;
     agePlusTwenty: number;
 }

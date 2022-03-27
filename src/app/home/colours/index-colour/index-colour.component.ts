@@ -23,7 +23,7 @@ export class IndexColourComponent implements OnInit {
   }
 
   loadData(){
-    this.usersService.getAll(this.currentPage, this.pageSize).subscribe((response: HttpResponse<TopColoursDTO[]>) => {
+    this.usersService.getColours(this.currentPage, this.pageSize).subscribe((response: HttpResponse<TopColoursDTO[]>) => {
       this.colours = response.body;
       this.totalAmountOfRecords = response.headers.get("totalAmountOfRecords");
     });
